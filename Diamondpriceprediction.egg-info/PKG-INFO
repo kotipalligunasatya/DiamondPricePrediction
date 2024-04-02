@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: Diamondpriceprediction
+Version: 0.0.1
+Author: gunasatya007
+Author-email: kotipalligunasatya915@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
