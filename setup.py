@@ -9,10 +9,11 @@ def get_requirements(file_path:str)->List[str]:
         return requirements
 
 setup(
-    name='Diamondpriceprediction',
+    name='src',
     version='0.0.1',
     author='gunasatya007',
     author_email="kotipalligunasatya915@gmail.com",
-    install_requires=get_requirements('requirements.txt'),
+    # install_requires=get_requirements('requirements.txt'),
+    install_requires=[],
     packages=find_packages()
 )
