@@ -20,7 +20,7 @@
             background-position: center;
         }
         .container {
-            background-color: rgba(237, 225, 241, 0.9);
+            background-color: rgba(237, 225, 241, 0.9); /* semi-transparent to make text readable */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 30px;
@@ -31,7 +31,7 @@
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
+            color: #333; /* Adjust text color for better readability */
         }
         /* Form styles */
         form {
@@ -73,7 +73,6 @@
             border-radius: 4px;
             background-color: #f0f0f0;
             text-align: left;
-            display: none;
         }
         #final-result h2 {
             margin-top: 0;
@@ -91,33 +90,11 @@
             margin-bottom: 20px;
         }
     </style>
-    <script>
-        function validateForm() {
-            var carat = document.getElementById('carat').value;
-            var depth = document.getElementById('depth').value;
-            var table = document.getElementById('table').value;
-            var x = document.getElementById('x').value;
-            var y = document.getElementById('y').value;
-            var z = document.getElementById('z').value;
-
-            if (isNaN(carat) || isNaN(depth) || isNaN(table) || isNaN(x) || isNaN(y) || isNaN(z)) {
-                alert("Please enter valid numeric values.");
-                return false;
-            }
-            return true;
-        }
-
-        function displayResult(result) {
-            var resultDiv = document.getElementById('final-result');
-            resultDiv.style.display = 'block';
-            resultDiv.innerHTML = `<h2>Prediction Result</h2><p>Final Prediction: ${result}</p>`;
-        }
-    </script>
 </head>
 <body>
     <div class="container">
         <h1>Diamond Price Predictor</h1>
-        <form action="{{ url_for('predict_datapoint') }}" method="POST" onsubmit="return validateForm()">
+        <form action="{{url_for('predict_datapoint')}}" method="POST">
             <div class="form-group">
                 <label for="carat">Carat:</label>
                 <input type="text" id="carat" name="carat" placeholder="Enter carat value (float)" required>
@@ -186,15 +163,13 @@
                 </select>
             </div>
 
-            <input type="submit" value="Predict">
+            <input type="submit" value="Predict" onclick="validateForm()">
         </form>
 
-        {% if final_result %}
         <div id="final-result">
             <h2>Prediction Result</h2>
-            <p>Final Prediction: {{ final_result }}</p>
+            <p>Final Prediction: {{final_result}}</p>
         </div>
-        {% endif %}
         <footer>
           © 2024 gunasatya. All rights reserved.
       </footer>
