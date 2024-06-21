@@ -18,15 +18,15 @@ def predict_datapoint():
     
     else:
         data=CustomData(
-            carat=float(request.form.get('carat')),
-            depth = float(request.form.get('depth')),
-            table = float(request.form.get('table')),
-            x = float(request.form.get('x')),
-            y = float(request.form.get('y')),
-            z = float(request.form.get('z')),
-            cut = request.form.get('cut'),
-            color= request.form.get('color'),
-            clarity = request.form.get('clarity')
+            carat=float(request.index.get('carat')),
+            depth = float(request.index.get('depth')),
+            table = float(request.index.get('table')),
+            x = float(request.index.get('x')),
+            y = float(request.index.get('y')),
+            z = float(request.index.get('z')),
+            cut = request.index.get('cut'),
+            color= request.index.get('color'),
+            clarity = request.index.get('clarity')
         )
         final_new_data=data.get_data_as_dataframe()
         predict_pipeline=PredictPipeline()
