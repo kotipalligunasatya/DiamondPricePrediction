@@ -14,7 +14,7 @@ def home_page():
 
 def predict_datapoint():
     if request.method=='GET':
-        return render_template('form.html')
+        return render_template('index.html')
     
     else:
         data=CustomData(
@@ -34,7 +34,7 @@ def predict_datapoint():
 
         results=round(pred[0],2)
 
-        return render_template('form.html',final_result=results)
+        return render_template('index.html',final_result=results)
     
 
 if __name__=="__main__":
